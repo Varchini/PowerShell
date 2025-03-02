@@ -117,7 +117,10 @@ function Run-RemoteScript {
 
 # Main script to remotely execute the process
 try {
-    Run-RemoteScript -kioskNameOrIP $kioskNameOrIP -kioskUsername $kioskUsername -kioskPassword $kioskPassword -logFilePath $logFilePath -processPath $processPath
+   Log-Event "Starting remediation process on kiosk $kioskNameOrIP."
+   Run-RemoteScript -kioskNameOrIP $kioskNameOrIP -kioskUsername $kioskUsername -kioskPassword $kioskPassword -logFilePath $logFilePath -processPath $processPath
+   Log-Event "Remediation process completed successfully on kiosk $kioskNameOrIP."
+
 } catch {
     Log-Event "An error occurred: $_"
 }
